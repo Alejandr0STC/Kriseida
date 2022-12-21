@@ -1,6 +1,6 @@
+
 let tiempo = new Date(2022,05,07);
 let tiempoReal = new Date();
-
 
 new Promise(function(resolve){
     resolve(init());
