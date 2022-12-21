@@ -1,5 +1,5 @@
-let tiempo = "13/8/2022";
-let tiempoReal = new Date().toLocaleDateString();
+let tiempo = new Date(2022,05,07);
+let tiempoReal = new Date();
 
 
 new Promise(function(resolve){
@@ -9,27 +9,26 @@ new Promise(function(resolve){
 });
 
 function init(){
-    if(tiempo == tiempoReal){
-        console.log("Te amo")
-    }
-    else{
-        console.log("No te amo")
-    }
-    // setTimeout(function(){
-    //     Swal.fire({
-    //         title: 'Te amo',
-    //         text: "Te amo",
-    //         imageUrl: 'https://i.pinimg.com/originals/7b/0d/0d/7b0d0d9b8b0c8b0c8b0c8b0c8b0c8b0c.gif',
-    //         imageWidth: 400,
-    //         imageHeight: 200,
-    //         imageAlt: 'Custom image',
-    //         })  
-    // }, 2000);
+    var tiempoTranscurrido = meses(tiempo,tiempoReal);
+    var diasTranscurridos = dias(tiempo,tiempoReal) ;
+
+        setTimeout(function(){
+            Swal.fire({
+                title: 'Te amo',
+                text: "Te recuerdo que a pasado " + diasTranscurridos + " dias desde que nos conocimos de cara a cara y nos dimos nuestro primer beso ><",
+                imageUrl: '../img/heart/heart_01.png',
+                imageWidth: 200,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+                })  
+        }, 2000);
+    
 }
 function animacion(){
     let animacion = document.getElementById("animado");
     // animacion.style.animation = "moving 3s ease-out"; 
     //animacion arriba abajo
+    animacion.style.display = "absolute";
     animacion.style.animationName = "moving";
     animacion.style.animationDuration = "3s";
     animacion.style.animationTimingFunction = "ease-out";
@@ -45,6 +44,15 @@ function paginaCancion1()
 {
     window.location.href = "https://www.youtube.com/watch?v=XFkzRNyygfk&ab_channel=Radiohead";
 }
-//window.onload = init();
-//window.onload = animacion();
+
+
+function meses(tiempo,tiempoReal){
+    let diferencia  = (tiempo.getTime() - tiempoReal.getTime()) / 1000 / (3600 * 24 * 7 * 4);
+    return Math.abs(Math.round(diferencia));
+}
+function dias(tiempo,tiempoReal){
+    let diferencia  = (tiempo.getTime() - tiempoReal.getTime()) / 1000 / (3600 * 24);
+    return Math.abs(Math.round(diferencia));
+}   
+
 
