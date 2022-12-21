@@ -16,7 +16,7 @@ function init(){
             Swal.fire({
                 title: 'Te amo',
                 text: "Te recuerdo que a pasado " + diasTranscurridos + " dias desde que nos conocimos de cara a cara y nos dimos nuestro primer beso ><",
-                imageUrl: '../img/heart/heart_01.png',
+                imageUrl: './img/heart/heart_01.png',
                 imageWidth: 200,
                 imageHeight: 200,
                 imageAlt: 'Custom image',
