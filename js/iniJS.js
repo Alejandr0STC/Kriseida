@@ -1,4 +1,4 @@
-
+//AAAA/MM - 2/DD
 let tiempo = new Date(2022,05,07);
 let tiempoReal = new Date();
 
@@ -9,9 +9,14 @@ new Promise(function(resolve){
 });
 
 function init(){
-    var tiempoTranscurrido = meses(tiempo,tiempoReal);
+    var mesesTranscurrido  = meses(tiempo,tiempoReal) - 1;
     var diasTranscurridos = dias(tiempo,tiempoReal) ;
+  
+    var diaActual = new Date().getDay() + 1;
 
+
+    if(diaActual != 7)
+    {
         setTimeout(function(){
             Swal.fire({
                 title: 'Te amo',
@@ -22,6 +27,20 @@ function init(){
                 imageAlt: 'Custom image',
                 })  
         }, 2000);
+    }
+    else
+    {
+        setTimeout(function(){
+        Swal.fire({
+            title: 'Te amo',
+            text: "Ya han pasado " + mesesTranscurrido + " meses desde que te vi y no quiero dejarte de ver" ,
+            imageUrl: './img/heart/heart_01.png',
+            imageWidth: 200,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+            })  
+    }, 2000);
+    }
     
 }
 function animacion(){
